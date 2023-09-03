@@ -3,12 +3,8 @@ class CallsController < ApplicationController
 
   # GET /calls or /calls.json
   def index
-    if !user_signed_in?
-    @calls = Call.all
-    else
-      redirect_to "/"
-    end 
-  end
+     @calls = Call.all
+     end
 
   # GET /calls/1 or /calls/1.json
   def show
