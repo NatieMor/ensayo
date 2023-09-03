@@ -3,7 +3,11 @@ class ClientsController < ApplicationController
 
   # GET /clients or /clients.json
   def index
+    if !user_signed_in?
     @clients = Client.all
+  else
+    redirect_to "/"
+  end 
   end
 
   # GET /clients/1 or /clients/1.json
