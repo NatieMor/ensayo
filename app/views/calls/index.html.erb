@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>LLamados</h1>
+<%= link_to "Nueva llamada", new_call_path %>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Razon</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Clinte ID</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <hr>
+
+    <tbody>
+
+    <% @calls.each do |call| %>
+      <tr>
+      <%= render call %>
+      <td>
+      <div class="btn-group" role="group">
+      <%= link_to "mostrar llamada", call, class:"btn btn-info m-1" %>
+      <%= link_to "nueva llamada", new_call_path, class:"btn btn-info m-1" %>
+      </div>
+    <% end %>
+    </tbody>
+

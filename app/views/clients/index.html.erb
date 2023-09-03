@@ -1,0 +1,42 @@
+<p style="color: green">
+  <%= notice %>
+</p>
+
+<h1>Clientes</h1>
+
+<%= link_to "Nuevo Cliente" , new_client_path, class:"center" %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Email</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+
+    <hr>
+
+    <tbody>
+      <% @clients.each do |client| %>
+        <tr>
+          <%= render client %>
+            <td>
+              <div class="btn-group" role="group">
+                <%= link_to call_path(client.id) do %>
+                  <i class="fas fa-mobile-alt fa-lg" style="color: #ff6c52;"></i>
+                  <% end %>
+                    <%= link_to calls_path do %>
+                      <i class="fas fa-file-alt fa-lg m-1" style="color: #fedd06;"></i>
+                      <% end %>
+                        <%= link_to "Editar" , edit_client_path(client), class: "btn btn-warning m-1 " %>
+                          <%= button_to "Eliminar" , client, method: :delete, class: "btn btn-danger m-1" %>
+              </div>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+
+  </table>

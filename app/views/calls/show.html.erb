@@ -1,0 +1,29 @@
+<p style="color: green"><%= notice %></p>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Razon</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Clinte ID</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <hr>
+
+    <tbody>
+
+      <tr>
+        <%= render @call %>
+      <td>
+
+<div class="btn-group" role="group">
+<i class="bi bi-apple"></i>
+  <%= link_to "Editar", edit_call_path(@call), class: "btn btn-success me-1" %> 
+  <%= link_to "Volver a llamadas", calls_path, class: "btn btn-success me-1" %>
+  </div>
+  <br>
+  <div class="btn-group" role="group">
+  <%= link_to "regresar a clietes", clients_path, class: "btn btn-success m-1" %>
+  <%= button_to "Eliminar", @call, method: :delete, class: "btn btn-danger m-1" %>
+</div>
