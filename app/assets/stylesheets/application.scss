@@ -14,3 +14,17 @@
  *= require_self
  */
  @import "bootstrap";
+
+@import "font-awesome";
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: 'Roboto Mono', monospace;
+}
+.btn{font-family: 'Pacifico', cursive;
+}
+button{font-family: 'Roboto Mono', monospace;
+}

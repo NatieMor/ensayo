@@ -1,14 +1,29 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Calls</h1>
+<h1>LLamados</h1>
+<%= link_to "Nueva llamada", new_call_path %>
 
-<div id="calls">
-  <% @calls.each do |call| %>
-    <%= render call %>
-    <p>
-      <%= link_to "Show this call", call %>
-    </p>
-  <% end %>
-</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Razon</th>
+        <th scope="col">Detalle</th>
+        <th scope="col">Clinte ID</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <hr>
 
-<%= link_to "New call", new_call_path %>
+    <tbody>
+
+    <% @calls.each do |call| %>
+      <tr>
+      <%= render call %>
+      <td>
+      <div class="btn-group" role="group">
+      <%= link_to "mostrar llamada", call, class:"btn btn-info m-1" %>
+      <%= link_to "nueva llamada", new_call_path, class:"btn btn-info m-1" %>
+      </div>
+    <% end %>
+    </tbody>
+

@@ -80,3 +80,5 @@ gem "pagy", "~> 6.0"
 gem "bootstrap", "~> 5.3"
 
 gem "popper_js", "~> 2.11"
+
+gem "font-awesome-sass", "~> 6.4"

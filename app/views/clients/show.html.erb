@@ -1,8 +1,30 @@
-<p style="color: green"><%= notice %></p>
+<p style="color: green">
 
-<%= render @client %>
+  <%= notice %>
+</p>
+<br>
+<h3> Cliente <h3>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">email</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <hr>
+  <tbody>
+    <tr>
+      <%= render @client %>
+        <td>
 
-<div>
-  <%= link_to "Edit this client", edit_client_path(@client) %> |
-  <%= button_to "Destroy this client", @client, method: :delete %>
-</div>
+          <div class="btn-group" role="group">
+            <%= link_to "Editar" , edit_client_path(@client), class: "btn btn-success m-1" %>
+              <%= button_to "eliminar" , @client, method: :delete , class: "btn btn-danger m-1" %>
+          </div>
+          </tr>
+          </td>
+        
