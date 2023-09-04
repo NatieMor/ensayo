@@ -24,7 +24,8 @@
           <div class="btn-group" role="group">
             <%= link_to "Editar" , edit_client_path(@client), class: "btn btn-success m-1" %>
               <%= button_to "eliminar" , @client, method: :delete , class: "btn btn-danger m-1" %>
+              <%= link_to "regresar a clietes", clients_path, class: "btn btn-success m-1" %>
           </div>
           </tr>
           </td>
-        
+        </table>
