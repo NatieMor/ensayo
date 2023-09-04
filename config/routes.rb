@@ -1,12 +1,17 @@
 Rails.application.routes.draw do
   resources :calls
   resources :clients
-  devise_for :users
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # Defines the root path route ("/")
   root "clients#index"
 #root "devise/shared/links"
 #session_path
+devise_for :users, controllers: {
+  sessions: 'users/sessions',
+  registrations: 'users/registrations'
+ }
+
 
 =begin
   unauthenticated do
