@@ -1,51 +1,53 @@
-<nav class="navbar navbar-expand-lg " >
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Clinetes</a>
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-sm navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="<%= calls_path %>">Clientes</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+      <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="<%= calls_path %>" aria-current="page">Inicio <span class="visually-hidden">(current)</span></a>
+        </li>
+        <% if !user_signed_in? %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= user_session_path %>">Ingresar</a>
+        </li>
+        <% end %>
         <% if user_signed_in? %>
-
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="calls">llamadas</a>
+          <a class="nav-link" href="<%= calls_path %>">Llamadas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="clients">clientes</a>
+          <a class="nav-link" href="<%= clients_path %>">Clientes</a>
         </li>
-        <%end%>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <% if user_signed_in? %>        
-                <%= current_user.email%>
-                <%else%>
-                    Opciones
-              <%end%>
-          </a>
-          <ul class="dropdown-menu">
-          <% if user_signed_in? %>
-            <li>
-              <%= button_to 'Cerrar sesión' , destroy_user_session_path, class: 'dropdown-item' , method: :delete %>
-            </li>
-            <%else%>
-            <li>
-              <%= link_to 'Iniciar sesión' , new_user_session_path, class: 'dropdown-item' %>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-            <li>
-              <%= link_to 'Registro' , new_user_registration_path, class: 'dropdown-item' %>
-            </li>
-            <%end%>
-          </ul>
-        </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.email %></a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+              <a class="dropdown-item" href="<%= edit_user_password_path %>">Editar</a>
+              <hr>
+              <%= button_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+            </div>
+          </li>
+        <% end %>
       </ul>
+      <% if user_signed_in? %>
+        <%= form_with url: calls_path, method: :get do |form| %>
+          <!-- Cuadro de búsqueda-->
+          <div class="card mb-2">
+            <div class="card-body">
+              <div class="input-group">
+                <%= form.text_field :buscar, class: "form-control", placeholder: "Buscar Publicación", value: @consulta %>
+                <%= form.submit 'Buscar', class: "btn btn-outline-primary" %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </nav>
+<% if notice.present? %>
+  <p class="notice alert alert-warning" role="alert"><%= notice %></p>
+<% end %>
