@@ -1,9 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>LLamados</h1>
-<%= link_to "Nueva llamada", new_call_path %>
+<div class="btn">
+<%= link_to "Nueva llamada", new_call_path, class:"btn btn-info" %>
+</div><br/>
 
-<table class="table">
+<table class=" table">
     <thead>
       <tr>
         <th scope="col">Razon</th>
@@ -14,9 +16,7 @@
       </tr>
     </thead>
     <hr>
-
     <tbody>
-
     <% @calls.each do |call| %>
       <tr>
       <%= render call %>
@@ -27,4 +27,4 @@
       </div>
     <% end %>
     </tbody>
-
+    </table>
