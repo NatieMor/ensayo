@@ -8,16 +8,19 @@
 one:
   email: admin@email.cl
   encrypted_password: 123456
-  name: Esteban
+  name: Pato
+  phone: 458965
+  address: 555kjk
   role: 1
-
 
 two:
   email: b@gmail.com
   encrypted_password: 123456
-  name: Bárbara
-
+  name: Natha
+  phone: 45897845
+  address: 544kjk
   role: 0
+  
 one: {}
 # column: value
 #
