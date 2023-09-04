@@ -1,5 +1,5 @@
 # README
-
+ensayo donde se aploca, devise, roles, cambio de navbar.
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
