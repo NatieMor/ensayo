@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
     def authorize_request(kind = nil)
         unless kind.include?(current_user.role)
-            redirect_to  tweets_path, notice: "no estas autorizado para realizar esta acción"
+            redirect_to  clients_path, notice: "no estas autorizado para realizar esta acción"
         end
     end
 end

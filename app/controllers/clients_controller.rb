@@ -1,5 +1,17 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: %i[ show edit update destroy ]
+  #usuario normal
+  before_action  only: %i[:index, :show ] do
+    authorize_request (["normal", "ejecutivo", "admin"])
+  end
+  #usuario ejecutivo
+  before_action  only: %i[:new, :edit, :create] do
+    authorize_request (["ejecutivo", "admin"])
+  end
+  #usuario administrador
+  before_action  only: %i[:update, :destroy] do
+    authorize_request (["admin"])
+  end
 
   # GET /clients or /clients.json
   def index
