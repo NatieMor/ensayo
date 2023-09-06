@@ -23,16 +23,17 @@ class CallsController < ApplicationController
   def show
   end
 
-  # GET /calls/new
+  # GET /calls/new despliega la vista
   def new
     @call = Call.new
+    @
   end
 
   # GET /calls/1/edit
   def edit
   end
 
-  # POST /calls or /calls.json
+  # POST /calls or /calls.json encargado de la persistencia
   def create
     @call = Call.new(call_params)
 
